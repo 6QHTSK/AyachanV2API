@@ -17,12 +17,12 @@ func InitRouter() (app *iris.Application) {
 	if config.Config.Debug {
 		app.Logger().SetLevel("debug")
 	} else {
-		app.Logger().SetLevel("error")
+		app.Logger().SetLevel("info")
 	}
 	app.Use(recover.New())
 	app.Use(logger.New())
 	crs := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:8080"},
+		AllowedOrigins:   []string{"http://localhost:8080", "https://www.ayachan.fun", "https://ayachan.fun"},
 		AllowCredentials: true,
 	})
 	app.UseRouter(crs)
